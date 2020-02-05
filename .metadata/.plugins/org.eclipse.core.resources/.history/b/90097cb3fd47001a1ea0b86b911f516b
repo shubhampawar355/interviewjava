@@ -39,7 +39,6 @@ public static void main(String[] args) {
 		case 4:
 			System.out.println("Enter Delimeter");
 			String delim=sc.next();
-			String[] res = Test.mySplit(str, delim);
 			for (String s : res) {
 				if(s!="")
 					System.out.println(s);

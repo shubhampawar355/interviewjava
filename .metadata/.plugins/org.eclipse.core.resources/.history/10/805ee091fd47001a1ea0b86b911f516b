@@ -21,7 +21,7 @@ public static void main(String[] args) {
 
 	String str=new String();
 	
-	System.out.println("Enter string to operations");
+	System.out.println("Enter string to reverse");
 	
 	str = sc.nextLine();
 	int choice;

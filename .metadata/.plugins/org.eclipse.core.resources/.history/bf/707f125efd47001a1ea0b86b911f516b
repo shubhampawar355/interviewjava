@@ -21,7 +21,7 @@ public static void main(String[] args) {
 
 	String str=new String();
 	
-	System.out.println("Enter string to operations");
+	System.out.println("Enter string to reverse");
 	
 	str = sc.nextLine();
 	int choice;
@@ -39,11 +39,7 @@ public static void main(String[] args) {
 		case 4:
 			System.out.println("Enter Delimeter");
 			String delim=sc.next();
-			String[] res = Test.mySplit(str, delim);
-			for (String s : res) {
-				if(s!="")
-					System.out.println(s);
-			}
+			System.out.println(Test.mySplit(str, " "));
 			break;
 
 		
