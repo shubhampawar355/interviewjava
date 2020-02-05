@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Test {
+	
+	public static Scanner sc=new Scanner(System.in);
+public static void main(String[] args) {
+	
+	
+
+	String str=new String();
+	
+	System.out.println("Enter string to reverse");
+	
+	str = sc.nextLine();
+	while(str.e)
+	
+	System.out.println(str);
+	
+}
+
+}
