@@ -13,11 +13,12 @@ public static void main(String[] args) {
 	System.out.println("Enter string to reverse");
 	
 	str = sc.nextLine();
-	System.out.println(Test.mystrLen(str));
-	String res = Test.reverseByWord(str);
-	System.out.println(res);
-	System.out.println(Test.mystrLen(res));
-
+	
+	String[] res = Test.mySplit(str," ");
+	for (String s : res) {
+		System.out.println(s);
+	}
+	
 }
 
 private static String substr(String str,int index) {
@@ -32,27 +33,41 @@ private static String substr(String str,int index) {
 }
 
 private static String reverseString(String str) {
-	if(str==null || Test.mystrLen(str)<=1)
+	if(str==null || Test.strLen(str)<=1)
 		return str;
 	return reverseString(Test.substr(str, 1))+str.charAt(0);
 	
 }
 
 
-private static String reverseByWord(String str) {
-	String result="";
-	
-	String splitArr[]=Test.mySplit(str,' ');
-	for(int i=splitArr.length-1;i>=0;i--) {
-		if(splitArr[i]!="")
-			result+=splitArr[i]+" ";
-	}
+/*private static String reverseByWord(String str) {
+	String result=new String();
+	String splitArr[]=str.split(" ");
+	for(int i=splitArr.length-1;i>=0;i--)
+		result+=splitArr[i]+" ";
 	return result;
 }
+*/
 
+private static String[] splitString(String str) {
+	char[] strarr = str.toCharArray();
+	String[] res=new String[strarr.length];
+	int flag=0,index=1;
+	while(flag<strarr.length)
+	{
+		String temp=new String();
+		while(strarr[flag]!=' ' && strarr[flag]!='\u0000')
+		{
+			temp+=strarr[flag];
+			flag++;
+		}
+		res[index]=temp;
+		index++;
+	}
+	return res;
+}
 
-
-private static int mystrLen(String str) {
+private static int strLen(String str) {
 	int len=0;
 	char[] strarr = str.toCharArray();
 	if(str.isEmpty())
@@ -65,7 +80,7 @@ private static int mystrLen(String str) {
 	}
 }
 
-public static String[] mySplit(String str, char delimiter)
+public static String[] mySplit(String str, String delimiter)
 {
     String[] result = new String[str.length()];//crating sting to store result
     char temp, delim;
@@ -76,22 +91,18 @@ public static String[] mySplit(String str, char delimiter)
     for(int i=0; i<str.length(); i++) {
         result[i] = "";
     }
-    
+
     //Puts the str values into the split array and concatonates until
     //a delimiter is found, then it moves to the next array index.
-    for(int i=0; i<str.length(); i++)
-    {
+    for(int i=0; i<str.length(); i++) {
         temp = str.charAt(i);
-        delim = delimiter;
+        delim = delimiter.charAt(0);
 
-            if(!(temp == delim)) 
-            {
+            if(!(temp == delim)) {
                 result[index] += str.charAt(i);
-            } 
-            else 
-           {
+            } else {
                 index++;
-//                result[index] += str.charAt(i);
+                result[index] += str.charAt(i);
                 index++;
             }
     }

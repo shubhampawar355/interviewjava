@@ -46,6 +46,7 @@ private static String reverseByWord(String str) {
 	for(int i=splitArr.length-1;i>=0;i--) {
 		if(splitArr[i]!="")
 			result+=splitArr[i]+" ";
+		
 	}
 	return result;
 }
